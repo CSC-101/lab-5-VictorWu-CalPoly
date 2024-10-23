@@ -1,6 +1,6 @@
+#from unittest import removeResult
 import data
 import unittest
-
 
 class TestCases(unittest.TestCase):
     #### Time tests
@@ -19,11 +19,32 @@ class TestCases(unittest.TestCase):
 
 
     #### Add tests for Time.__eq__
+    def test_Time_eq_1(self):
+        time1 = data.Time(4, 20, 15)
+        time2 = data.Time(5,50,10)
+        result = time1.__eq__(time2)
+        expected = False
+        self.assertEqual(result, expected)
+
+    def test_Time_eq_2(self):
+        time1 = data.Time(4, 20, 15)
+        time2 = data.Time(4,20,15)
+        result = time1.__eq__(time2)
+        expected = True
+        self.assertEqual(result, expected)
 
     #### Add tests for Time.__repr__
+    def test_Time_repr_1(self):
+        time1 = data.Time(4,5,18)
+        result = repr(time1)
+        expected = "Hour: 4, Minute: 5, Second: 18"
+        self.assertEqual(result, expected)
 
-
-
+    def test_Time_repr_2(self):
+        time1 = data.Time(60,100,500)
+        result = repr(time1)
+        expected = "Hour: 60, Minute: 100, Second: 500"
+        self.assertEqual(result, expected)
 
     #### Point tests
     def test_Point_1(self):
