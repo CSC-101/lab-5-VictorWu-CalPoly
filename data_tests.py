@@ -26,6 +26,7 @@ class TestCases(unittest.TestCase):
         expected = False
         self.assertEqual(result, expected)
 
+
     def test_Time_eq_2(self):
         time1 = data.Time(4, 20, 15)
         time2 = data.Time(4,20,15)

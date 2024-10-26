@@ -2,7 +2,6 @@ from data import Point, Time
 import lab5
 import unittest
 
-
 # Write your test cases for each part below.
 
 class TestCases(unittest.TestCase):

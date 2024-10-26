@@ -25,10 +25,10 @@ def time_add(x:Time, y:Time) -> Time:
 
 # Part 4
 def is_descending(numbers:list[float]) -> list[float]:
-    for idx in range(len(numbers)):                     #For each object in the list from range(EX:5):
-        for jdx in range(0, len(numbers) - idx - 1):    #[0,(5-0-1)] idx is 0, jdx is 0, range is 4 / Loop comparison
-            if numbers[jdx] < numbers[jdx + 1]:         #Swaps if current number less than the next if necessary
-                numbers[jdx], numbers[jdx + 1] = numbers[jdx + 1], numbers[jdx]
+    for idx in range(len(numbers) - 1):                 #For each object in the list from range(EX:5):
+        for jdx in range(0, len(numbers) - idx - 1):    #AND for range[0,(5-0-1)] idx is 0, jdx is 0, range is 4 / Loop comparison
+            if numbers[jdx] < numbers[jdx + 1]:         #Swaps if current number less than the adjacent number if necessary
+                numbers[jdx], numbers[jdx + 1] = numbers[jdx + 1], numbers[jdx] #debug for #[2.2, 5.2, 3.3, 9.9, 1.1]
     return numbers
 
 # Part 5
