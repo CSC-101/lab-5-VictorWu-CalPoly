@@ -33,20 +33,18 @@ def is_descending(numbers:list[float]) -> list[float]:
 
 # Part 5
 def largest_between(numbers:list[int],lower:int,upper:int) -> int:
-    if lower >= upper:           #Return none if lower is >= upper
+    if lower > upper:           #Return none if lower is >= upper
         return None
 
-    elif lower < 0:              #If lower out of bounds/negative then set to 0 EX: -2 < 0
-        lower = 0
-
-    elif upper >= len(numbers):  #If upper is out of bounds EX: 9 >= 5, upper = 4
-        upper = len(numbers) - 1
+    #Adjust if lower or upper out of bounds
+    lower = max(0, lower)
+    upper = min(len(numbers) - 1, upper)
 
     largest_value = None         #Storage/ Placeholder for the largest value
     largest_index = None         #Storage/ Placeholder for the largest index
 
-    for x in range(lower + 1, upper):   #Numbers between LOWER & UPPER ONLY, exclude the range values bc range considers the first number but not he last EX: range(1,5) is 1,2,3,4 & range(1+1, 5) is 2,3,4 which is bt [1,5]
-        current_value = numbers[x]      #Gets current value from index in the list BT the bounds EX: index of 2
+    for x in range(lower, upper+1):   #Include the lower bound but the +1 is because range typically doesn't include the last value, this ensures its value is included.
+        current_value = numbers[x]
         if largest_value is None or current_value > largest_value:  #(1st ITER) IF largest_value is a placeholder is None EX: 5 or (2nd ITER) current value > largest value EX: 6:
             largest_value = current_value                           #changes largest value to the current value is necessary
             largest_index = x                                       #changes largest index to the current largest value's index
